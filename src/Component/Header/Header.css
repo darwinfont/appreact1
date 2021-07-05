@@ -1,0 +1,29 @@
+.header{
+   display: grid;
+   position: sticky;
+   top: 1px;
+   background: orange;
+   border-radius:0 0 5px 5px;
+   border: 1px solid rgba(0,0,0,65%);
+   box-shadow: #646571 -3px -3px 5px inset;
+   line-height: 60px;
+   height: 60px;
+}
+.nav {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-gap: 3px;
+    padding: 3px;
+}
+.left {
+    height: 98%;
+    width: 95%;
+}
+.center {
+    height: 98%;
+    width: 95%;
+}
+.riagth {
+    height: 98%;
+    width: 95%;
+}
