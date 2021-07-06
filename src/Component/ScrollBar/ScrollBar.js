@@ -5,14 +5,14 @@ import './ScrollBar.css'
 export default function ScrollBar(props) {
   let countVistas =
     props.length % 4 == 0 ? props.length / 4 : Math.ceil(props.length / 4)
-  let itemsShowing = Items(countVistas, 1).slice(0, 4)
+  let itemsShowing = Items(countVistas, props.vistaActiva).slice(0, 4)
   return (
     <>
       <nav id="scrollBar" className="navScrollBar">
         {props.length > 0 && (
-          <div className="cantidadItem">
+          <span className="cantidadItem">
             {props.vistaActiva * 4} de {props.length}
-          </div>
+          </span>
         )}
         <div className="scrollBar">
           <>
@@ -27,7 +27,11 @@ export default function ScrollBar(props) {
             )}
           </>
           {itemsShowing.map((valor) => (
-            <ItemScroll value={valor} onClick={props.onChangeVista} />
+            <ItemScroll
+              value={valor}
+              max={countVistas}
+              onClick={props.onChangeVista}
+            />
           ))}
           <>
             {props.vistaActiva < countVistas ? (
@@ -54,9 +58,13 @@ const Items = (cant, inc) => {
 const ItemScroll = (props) => {
   return (
     <>
-      <span className="itemScroll" onClick={() => props.onClick(props.value)}>
-        {props.value}
-      </span>
+      {props.value <= props.max ? (
+        <span className="itemScroll" onClick={() => props.onClick(props.value)}>
+          {props.value}
+        </span>
+      ) : (
+        <span className="itemScrollOff"> {props.value} </span>
+      )}
     </>
   )
 }

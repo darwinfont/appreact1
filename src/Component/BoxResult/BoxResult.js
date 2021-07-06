@@ -4,7 +4,8 @@ import ScrollBar from '../ScrollBar/ScrollBar.js'
 import Productos from '../Productos/Productos.js'
 
 export default function BoxResult(props) {
-  const [vista, setVista] = useState(1, [])
+  const [vista, setVista] = useState(1)
+  if (vista >= Math.ceil(props.length / 4)) setVista(1)
   return (
     <>
       <main className="mainResult">

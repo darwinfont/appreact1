@@ -6,31 +6,16 @@ import './BarBuscar.css'
 
 const BarBuscar = (results) => {
   const [inSearch, setSearch] = useState('', [])
-  //Verificar y elimar respJson
-  const respJson = Zapatos.results
 
   const search = (e) => {
     e.preventDefault()
-    results(filter(respJson, (value) => testObj(value, inSearch)))
+    inSearch.length > 0 &&
+      results(filter(Zapatos.results, (value) => testObj(value, inSearch)))
   }
   const onChange = (e) => {
     e.preventDefault()
     setSearch(e.target.value)
   }
-  /* useEffect(() => {
-    fetch('./scr/Zapatos.json')
-      .then((response) => {
-        if (response.ok) {
-          console.log('response ok')
-          return response.json()
-        } else throw new Error('Error fetch Zapatos')
-      })
-      .then((data) => {
-        console.log(data.result.length)
-        setRespJson(data.result)
-      })
-      .catch((reject) => console.log(reject))
-  })*/
   return (
     <>
       <form className="formSearch" onChange={onChange}>

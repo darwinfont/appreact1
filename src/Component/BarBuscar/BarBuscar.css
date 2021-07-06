@@ -1,17 +1,17 @@
 .BarBuscar {
     margin: 0px;
-    padding: 5px;
+    padding: 10px;
     border: 1px solid;
     display: flex;
     justify-content: center;
-    align-items:baseline;
+    align-items:center;
 }
 
 .formSearch{
    display: flex;
-   height: 95%;
+   height: 100%;
    justify-content: center;
-   align-items:baseline;
+   align-items:center;
    padding: 5px;
    width: 100%;
 }
@@ -20,10 +20,19 @@
     border-radius: 5px;
     background: #fff;
     font: 16px;
+    line-height:30px;
     padding-left: 10px;
     width: 95%;
 }
 
 .buttonSearch {
     transform: translate(-30px,3px);
+}
+.modal {
+  top: 0;
+  left: 0;
+  position: relative;
+  z-index: 1111;
+  width: 100%;
+  height: 100%;
 }
